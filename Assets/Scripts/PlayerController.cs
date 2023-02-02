@@ -13,7 +13,7 @@ using UnityEngine.SceneManagement;
 
         public float jumpCD = 1;
 
-        //public AudioClip DeathClip;
+        public AudioClip DeathClip;
 
         public AudioClip JumpClip;
 
@@ -77,7 +77,7 @@ using UnityEngine.SceneManagement;
                 rb.gravityScale = 0;
                 GetComponent<SpriteRenderer>().enabled = false;
                 isdead = true;
-               // AudioSource.PlayClipAtPoint(DeathClip, transform.position);
+                AudioSource.PlayClipAtPoint(DeathClip, transform.position);
                 Invoke("Respawn", 3);
 
             }
@@ -95,7 +95,7 @@ using UnityEngine.SceneManagement;
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadSceneAsync(0);
         }
     }
 
