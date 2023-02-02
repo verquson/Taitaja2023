@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
     public class PlayerController : MonoBehaviour
     {
@@ -12,7 +13,7 @@ using UnityEngine;
 
         public float jumpCD = 1;
 
-        public AudioClip DeathClip;
+        //public AudioClip DeathClip;
 
         public AudioClip JumpClip;
 
@@ -51,6 +52,7 @@ using UnityEngine;
         }
     }
 
+
        private void FixedUpdate()
         {
             if (isdead)
@@ -58,8 +60,8 @@ using UnityEngine;
 
             rb.velocity = playerInput;
 
-
         }
+
 
         void ResetJump()
         {
@@ -67,19 +69,19 @@ using UnityEngine;
             Debug.Log("Jump Cooldown reset. Is Jump on CD: " + hasJumped);
         }
 
-        //private void OnTriggerEnter2D(Collider2D collision)
-        //{
-            //if (collision.gameObject.GetComponent<wall>())
-            //{
-                //rb.velocity = Vector2.zero;
-                //rb.gravityScale = 0;
-                //GetComponent<SpriteRenderer>().enabled = false;
-                //isdead = true;
-                //AudioSource.PlayClipAtPoint(DeathClip, transform.position);
-                //Invoke("Respawn", 2);
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.GetComponent<Wall>())
+            {
+                rb.velocity = Vector2.zero;
+                rb.gravityScale = 0;
+                GetComponent<SpriteRenderer>().enabled = false;
+                isdead = true;
+               // AudioSource.PlayClipAtPoint(DeathClip, transform.position);
+                Invoke("Respawn", 2);
 
-            //}
-        //}
+            }
+        }
 
         void Respawn()
         {
@@ -88,7 +90,14 @@ using UnityEngine;
             GetComponent<SpriteRenderer>().enabled = true;
             isdead = false;
         }
-
+        
+        void ReturnToMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+    }
 
    }
 
