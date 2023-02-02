@@ -85,7 +85,7 @@ using UnityEngine.SceneManagement;
 
         void Respawn()
         {
-            rb.gravityScale = 1;
+            rb.gravityScale = 5;
             this.transform.position = Respawnpoint.position;
             GetComponent<SpriteRenderer>().enabled = true;
             isdead = false;
