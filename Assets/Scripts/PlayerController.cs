@@ -36,7 +36,7 @@ using UnityEngine.SceneManagement;
             if (isdead)
                 return;
 
-            playerInput.x = Input.GetAxis("Horizontal") * speed;
+        playerInput.x = Input.GetAxis("Horizontal") * speed;
 
         if (Input.GetButtonDown("Jump") && !hasJumped)
         {
