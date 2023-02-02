@@ -23,7 +23,6 @@ using UnityEngine;
         private Vector2 playerInput;
         bool isdead = false;
 
-
         void Start()
         {
 
@@ -38,21 +37,21 @@ using UnityEngine;
 
             playerInput.x = Input.GetAxis("Horizontal") * speed;
 
-            if (Input.GetButtonDown("Jump") && !hasJumped)
-            {
-                rb.AddForce(Vector2.up * jumpForce);
-                hasJumped = true;
-                Debug.Log("Player Jumped. Is Jump on CD: " + hasJumped);
-                Invoke("ResetJump", jumpCD);
-                AudioSource.PlayClipAtPoint(JumpClip, transform.position);
-            }
-            else
-            {
-                playerInput.y = rb.velocity.y;
-            }
+        if (Input.GetButtonDown("Jump") && !hasJumped)
+        {
+            rb.AddForce(Vector2.up * jumpForce);
+            hasJumped = true;
+            Debug.Log("Player Jumped. Is Jump on CD: " + hasJumped);
+            Invoke("ResetJump", jumpCD);
+            AudioSource.PlayClipAtPoint(JumpClip, transform.position);
         }
+        else
+        {
+            playerInput.y = rb.velocity.y;
+        }
+    }
 
-        private void FixedUpdate()
+       private void FixedUpdate()
         {
             if (isdead)
                 return;
