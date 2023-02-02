@@ -21,12 +21,14 @@ using UnityEngine.SceneManagement;
 
         private bool hasJumped = false;
 
+        public Animator animator;
+
         private Vector2 playerInput;
         bool isdead = false;
 
         void Start()
         {
-
+        Time.timeScale = 1;
             rb = GetComponent<Rigidbody2D>();
         }
 
@@ -42,6 +44,7 @@ using UnityEngine.SceneManagement;
         {
             rb.AddForce(Vector2.up * jumpForce);
             hasJumped = true;
+            animator.SetBool("IsJumping", true);
             Debug.Log("Player Jumped. Is Jump on CD: " + hasJumped);
             Invoke("ResetJump", jumpCD);
             AudioSource.PlayClipAtPoint(JumpClip, transform.position);
