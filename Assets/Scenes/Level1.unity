@@ -1002,6 +1002,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179883451}
   m_CullTransparentMesh: 1
+--- !u!95 &1330157086 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3875041855307979185, guid: 473396c85e411e34a84bfd7823b6bc45, type: 3}
+  m_PrefabInstance: {fileID: 3875041855558286710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1454271058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1660,10 @@ PrefabInstance:
       propertyPath: JumpClip
       value: 
       objectReference: {fileID: 8300000, guid: 1ad4f31199adb974f9ffe5e43b7769a8, type: 3}
+    - target: {fileID: 3875041855307979191, guid: 473396c85e411e34a84bfd7823b6bc45, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1330157086}
     - target: {fileID: 3875041855307979191, guid: 473396c85e411e34a84bfd7823b6bc45, type: 3}
       propertyPath: DeathClip
       value: 
