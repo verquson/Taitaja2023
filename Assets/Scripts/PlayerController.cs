@@ -78,7 +78,7 @@ using UnityEngine.SceneManagement;
                 GetComponent<SpriteRenderer>().enabled = false;
                 isdead = true;
                // AudioSource.PlayClipAtPoint(DeathClip, transform.position);
-                Invoke("Respawn", 2);
+                Invoke("Respawn", 3);
 
             }
         }
@@ -95,7 +95,7 @@ using UnityEngine.SceneManagement;
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
